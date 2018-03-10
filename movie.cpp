@@ -8,17 +8,20 @@
 using namespace std;
 
 // constructor
-Movie::Movie(int stock, string title, string director, string releaseYear) {
+virtual Movie::Movie(int stock, string title, string director,
+						string releaseYear, string movieType) {
 	this.stockCount = stock;
 	this.title = title;
 	this.director = director;
 	this.releaseYear = releaseYear;
+	this.movieType = movieType;
+}
+
+// deconstructor
+~Movie() {
+	delete this*;
 }
 									
-//~Movie(); // deconstructor
-									
-//string getMovieType();   // returns the type of movie
-
 // decreases stock by 1
 void Movie::decrementStock() {
 	--stockCount;
@@ -54,7 +57,11 @@ string Movie::getReleaseData() {
 	return releaseYear;
 }
 
+string Movie::getMovieType() {
+	return movieType;
+}
+
 // less than operator
-bool Movie::operator<(const Movie &rhs) const {
+virtual bool Movie::operator<(const Movie &rhs) const {
 
 }

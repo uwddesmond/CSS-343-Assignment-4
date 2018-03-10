@@ -9,10 +9,8 @@ using namespace std;
 class Movie {
 
 	public:
-		Movie(int, string, string, string); // constructor
-		//~Movie(); // deconstructor
-
-		//string getMovieType();   // returns the type of movie
+		virtual Movie(int, string, string, string, string); // constructor
+		~Movie(); // deconstructor
 
 		void decrementStock();   // decreases stock by 1
 		void incrementStock();   // increases stock by 1
@@ -25,14 +23,16 @@ class Movie {
 
 		string getReleaseData(); // returns the movie's release year
 
-		bool operator<(const Movie&) const;  // less than operator
-		bool operator==(const Movie&) const; // checks if the movies are the same 
+		string getMovieType();	 // returns the movie type
+
+		virtual bool operator<(const Movie&) const;  // less than operator
 
 	private:
 		int stockCount;
 		string title;
 		string director;
 		string releaseYear;
+		string movieType;
 };
 
 #endif // MOVIE_H
