@@ -4,6 +4,7 @@
 
 #include <string>
 #include <queue>
+#include <deque>
 #include "transaction.cpp"
 
 using namespace std;
@@ -16,12 +17,12 @@ class Customer {
 
 		int getCustomerId();		// returns the customer's id
 		string getCustomerName();   // returns the customer's name
-		Queue<Transaction> getHistory(); // returns a queue of the user's transactions
+		void getHistory(); // returns a queue of the user's transactions
 	
 	private:
 		int customerId;
 		string name;
-		Queue<Transaction> history;
+		deque<Transaction>* history;
 };
 
 #endif // CUSTOMER_H
