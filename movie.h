@@ -9,7 +9,7 @@ using namespace std;
 class Movie {
 
 	public:
-		virtual Movie(int, string, string, string, string); // constructor
+		Movie(int, string, string, string, string); // constructor
 		~Movie(); // deconstructor
 
 		void decrementStock();   // decreases stock by 1
@@ -27,7 +27,7 @@ class Movie {
 
 		virtual bool operator<(const Movie&) const;  // less than operator
 
-	private:
+	protected:
 		int stockCount;
 		string title;
 		string director;

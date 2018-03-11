@@ -8,18 +8,18 @@
 using namespace std;
 
 // constructor
-virtual Movie::Movie(int stock, string title, string director,
+Movie::Movie(int stock, string title, string director,
 						string releaseYear, string movieType) {
-	this.stockCount = stock;
-	this.title = title;
-	this.director = director;
-	this.releaseYear = releaseYear;
-	this.movieType = movieType;
+	this->stockCount = stock;
+	this->title = title;
+	this->director = director;
+	this->releaseYear = releaseYear;
+	this->movieType = movieType;
 }
 
 // deconstructor
-~Movie() {
-	delete this*;
+Movie::~Movie() {
+	delete this;
 }
 									
 // decreases stock by 1
