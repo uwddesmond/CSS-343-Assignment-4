@@ -8,11 +8,10 @@
 using namespace std;
 
 class Drama : public Movie {
-
+	
 public:
+	Drama(int, string, string, string, string); // constructor
 	bool operator<(const Movie&) const override; // less than operator
-
-private:
 
 };
 
