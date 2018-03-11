@@ -8,10 +8,10 @@ Comedy::Comedy(int stock, string title, string director,
 
 bool Comedy::operator<(const Comedy &other) const
 {
-	if (this->title != other->title) {
-		return this->title < other->title;
+	if (this->title != other.title) {
+		return this->title < other.title;
 	}
 	else {
-		return this.releaseYear < other.releaseYear;
+		return this->releaseYear < other.releaseYear;
 	}
 }
