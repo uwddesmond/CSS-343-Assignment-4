@@ -17,17 +17,10 @@ Drama::~Drama() {
 // less than operator
 // Sorted by Director then Title alphabetically 
 bool Drama::operator<(const Drama &rhs) const {
-	if (this->director < rhs.getDirector()) {
-		return true;
+	if (this->director != rhs.director) {
+		this->director < rhs.director;
 	}
-	else if (this->director > rhs.getDirector()) {
-		return false;
+	else {
+		return this->title < rhs.title;
 	}
-
-	if (this->title < rhs.getTitle()) {
-		return true;
-	}
-
-	return false;
-
 }
