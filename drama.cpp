@@ -6,12 +6,17 @@
 // drama movie constructor
 Drama::Drama(int stock, string title, string director, string releaseYear, 
 	string movieType) : Movie(stock, title, director, releaseYear, movieType) {
-
+	this->key = director + title;
 }
 
 // deconstructor
 Drama::~Drama() {
 	delete this;
+}
+
+string Drama::getKey() const
+{
+	return this->key;
 }
 
 // less than operator

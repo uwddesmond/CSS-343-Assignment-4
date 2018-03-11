@@ -14,8 +14,8 @@ class Movie {
 
 		void decrementStock();   // decreases stock by 1
 		void incrementStock();   // increases stock by 1
-		bool inStock();		     // returns whether there is stock remaining
-		int getStockCount();     // returns the number of movies in stock
+		bool inStock() const ;		     // returns whether there is stock remaining
+		int getStockCount() const;     // returns the number of movies in stock
 
 		string getTitle() const;	     // returns the title of the movie
 

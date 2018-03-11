@@ -9,9 +9,13 @@ class Comedy : public Movie {
 
 public:
 	Comedy(int, string, string, string, string);
+	~Comedy();
 
+	string getKey() const;
 	bool operator<(const Comedy&) const;
 
+private:
+	string key;
 };
 
 

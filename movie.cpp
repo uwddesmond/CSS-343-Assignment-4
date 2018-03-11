@@ -33,31 +33,31 @@ void Movie::incrementStock() {
 }
 
 // returns whether there is stock remaining
-bool Movie::inStock() {
+bool Movie::inStock() const {
 	return (stockCount > 0);
 }
 
 // returns the number of movies in stock
-int Movie::getStockCount() {
+int Movie::getStockCount() const {
 	return stockCount;
 }
 
 // returns the title of the movie
-string Movie::getTitle() {
+string Movie::getTitle() const {
 	return title;
 }
 
 // returns the movie's director
-string Movie::getDirector() {
+string Movie::getDirector() const {
 	return director;
 }
 
 // returns the movie's release year
-string Movie::getReleaseData() {
+string Movie::getReleaseData() const {
 	return releaseYear;
 }
 
-string Movie::getMovieType() {
+string Movie::getMovieType() const {
 	return movieType;
 }
 

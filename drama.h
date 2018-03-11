@@ -12,8 +12,12 @@ class Drama : public Movie {
 public:
 	Drama(int, string, string, string, string); // constructor
 	~Drama(); // Deconstructor
+
+	string getKey() const;
 	bool operator<(const Drama&) const; // less than operator
 
+private:
+	string key;
 };
 
 #endif // DRAMA_H
