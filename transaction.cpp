@@ -12,7 +12,9 @@ Transaction::Transaction(int customerId, string movieTitle, bool transType) {
 	this->transactionType = transType;
 }
 
-//~Transaction(); // deconstructor
+Transaction::~Transaction() {
+	delete this;
+}
 
 // returns the customer's id
 int Transaction::getCustomerId() {

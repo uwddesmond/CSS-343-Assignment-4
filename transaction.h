@@ -10,7 +10,7 @@ class Transaction {
 
 public:
 	Transaction(int, string, bool); // constructor receives id, title, type
-	//~Transaction(); // deconstructor
+	~Transaction(); // deconstructor
 
 	int getCustomerId();		// returns the customer's id
 	string getMovieTitle();     // returns the movie's title
