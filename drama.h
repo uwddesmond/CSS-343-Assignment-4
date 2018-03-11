@@ -12,7 +12,7 @@ class Drama : public Movie {
 public:
 	Drama(int, string, string, string, string); // constructor
 	~Drama(); // Deconstructor
-	bool operator<(const Movie&) const override; // less than operator
+	bool operator<(const Drama&) const; // less than operator
 
 };
 

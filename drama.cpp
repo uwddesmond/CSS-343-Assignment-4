@@ -16,15 +16,15 @@ Drama::~Drama() {
 
 // less than operator
 // Sorted by Director then Title alphabetically 
-virtual bool Drama::operator<(const Movie &rhs) const override {
-	if (this->director < rhs->director) {
+bool Drama::operator<(const Drama &rhs) const {
+	if (this->director < rhs.getDirector()) {
 		return true;
 	}
-	else if (this->director > rhs->director) {
+	else if (this->director > rhs.getDirector()) {
 		return false;
 	}
 
-	if (this->title < rhs->title) {
+	if (this->title < rhs.getTitle()) {
 		return true;
 	}
 
