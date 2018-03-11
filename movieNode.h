@@ -6,10 +6,10 @@ template <class genre>
 class movieNode {
 	
 public:
-	movieNode<genre>(genre);
+	movieNode<genre>(genre*);
 
 	movieNode* next;
-	genre item;
+	genre *item;
 
 };
 

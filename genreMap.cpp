@@ -28,10 +28,10 @@ template<class genre>
 genre * genreMap<genre>::find(string)
 {
 	int index = hashFunction(string);
-	genre *cur = this->movies[index];
+	movieNode *cur = this->movies[index];
 	while (cur != nullptr) {
 		if (string == cur.getKey()) {
-			return cur;
+			return cur.item;
 		}
 	}
 	return nullptr;
