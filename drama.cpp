@@ -4,31 +4,27 @@
 #include "drama.h"
 
 // drama movie constructor
-Drama::Drama(int stock, string title, string director,
-							string releaseYear, string movieType) {
-	this.stockCount = stock;
-	this.title = title;
-	this.director = director;
-	this.releaseYear = releaseYear;
-	this.movieType = movieType;
+Drama::Drama(int stock, string title, string director, string releaseYear, 
+	string movieType) : Movie(stock, title, director, releaseYear, movieType) {
+
+}
+
+// deconstructor
+Drama::~Drama() {
+	delete this;
 }
 
 // less than operator
 // Sorted by Director then Title alphabetically 
 virtual bool Drama::operator<(const Movie &rhs) const override {
-	string director = getDirector();
-	string otherDirector = rhs.getDirector();
-	if (director < otherDirector) {
+	if (this->director < rhs->director) {
 		return true;
 	}
-	else if (director > otherDirector) {
+	else if (this->director > rhs->director) {
 		return false;
 	}
 
-	string title = getTitle();
-	string otherTitle = rhs.getTitle();
-
-	if (title < otherTitle) {
+	if (this->title < rhs->title) {
 		return true;
 	}
 
