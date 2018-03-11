@@ -13,7 +13,7 @@ class Customer {
 
 	public:
 		Customer(int, string); // constructor recieves id, name
-		//~Customer(); // deconstructor
+		~Customer(); // deconstructor
 
 		int getCustomerId();		// returns the customer's id
 		string getCustomerName();   // returns the customer's name
@@ -23,6 +23,16 @@ class Customer {
 		int customerId;
 		string name;
 		deque<Transaction>* history;
+};
+
+struct CustomerNode {
+	int item;
+	CustomerNode* next;
+
+	CustomerNode(int id) {
+		item = id;
+		next = nullptr;
+	}
 };
 
 #endif // CUSTOMER_H

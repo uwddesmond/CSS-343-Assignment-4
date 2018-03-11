@@ -8,10 +8,10 @@ genreMap<genre>::genreMap<genre>()
 }
 
 template<class genre>
-void genreMap<genre>::insert(genre movie*)
+void genreMap<genre>::insert(genre* movie)
 {	
 	int index = hashFunction(movie.getKey());
-	movieNode target = new MovieNode(movie);
+	movieNode* target = new MovieNode(movie);
 	movieNode *cur = this->movies[index];
 	if (cur != nullptr) {
 		while (cur.next != nullptr) {
@@ -25,14 +25,15 @@ void genreMap<genre>::insert(genre movie*)
 }
 
 template<class genre>
-genre * genreMap<genre>::find(string)
+genre * genreMap<genre>::find(string key)
 {
-	int index = hashFunction(string);
+	int index = hashFunction(key);
 	movieNode *cur = this->movies[index];
 	while (cur != nullptr) {
-		if (string == cur.getKey()) {
+		if (key == cur.item.getKey()) {
 			return cur.item;
 		}
+		cur = cur.next;
 	}
 	return nullptr;
 }

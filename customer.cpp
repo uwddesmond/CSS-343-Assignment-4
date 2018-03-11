@@ -16,7 +16,10 @@ Customer::Customer(int customerId, string customerName) {
 	this->history = new deque<Transaction>();
 }
 
-//~Customer(); // deconstructor
+// deconstructor
+Customer::~Customer() {
+	delete this;
+}
 
 // returns the customer's id
 int Customer::getCustomerId() {
