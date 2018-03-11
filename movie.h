@@ -17,13 +17,13 @@ class Movie {
 		bool inStock();		     // returns whether there is stock remaining
 		int getStockCount();     // returns the number of movies in stock
 
-		string getTitle();	     // returns the title of the movie
+		string getTitle() const;	     // returns the title of the movie
 
-		string getDirector();    // returns the movie's director
+		string getDirector() const;    // returns the movie's director
 
-		string getReleaseData(); // returns the movie's release year
+		string getReleaseData() const; // returns the movie's release year
 
-		string getMovieType();	 // returns the movie type
+		string getMovieType() const;	 // returns the movie type
 
 		virtual bool operator<(const Movie&) const;  // less than operator
 

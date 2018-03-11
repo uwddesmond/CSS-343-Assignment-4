@@ -6,7 +6,7 @@ Comedy::Comedy(int stock, string title, string director,
 	Movie(stock, title, director, releaseYear, movieType) {
 }
 
-bool Comedy::operator<(const Movie other&) const
+bool Comedy::operator<(const Comedy &other) const
 {
 	if (this->title != other->title) {
 		return this->title < other->title;

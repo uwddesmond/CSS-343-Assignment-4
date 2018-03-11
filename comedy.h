@@ -10,7 +10,7 @@ class Comedy : public Movie {
 public:
 	Comedy(int, string, string, string, string);
 
-	bool operator<(const Movie&) const override;
+	bool operator<(const Comedy&) const;
 
 };
 

@@ -7,6 +7,12 @@ Classic::Classic(int stock, string title, string director,string releaseYear,
 	this->actor = actor;
 }
 
-bool Classic::operator<(const Movie &other) const
+bool Classic::operator<(const Classic &other) const
 {
+	if (this->releaseYear != other.getReleaseData()) {
+		return this->releaseYear < other.getReleaseData();
+	}
+	else {
+		return this->actor < other.actor;
+	}
 }

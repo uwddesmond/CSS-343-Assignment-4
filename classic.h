@@ -10,7 +10,7 @@ class Classic : public Movie {
 public :
 	Classic(int, string, string, string, string, string); // constructor
 	
-	bool operator<(const Movie&) const override;
+	bool operator<(const Classic&) const;
 
 private :
 	string actor;
