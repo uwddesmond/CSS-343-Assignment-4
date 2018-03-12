@@ -18,20 +18,22 @@ class Customer {
 		int getCustomerId();		// returns the customer's id
 		string getCustomerName();   // returns the customer's name
 		void getHistory(); // returns a queue of the user's transactions
+
+		void makeTransaction(Transaction*);
 	
 	private:
 		int customerId;
 		string name;
-		deque<Transaction>* history;
+		deque<Transaction*>* history;
 };
 
 struct CustomerNode {
-	int item;
 	CustomerNode* next;
+	Customer* cust;
 
-	CustomerNode(int id) {
-		item = id;
+	CustomerNode(Customer* customer) {
 		next = nullptr;
+		cust = customer;
 	}
 };
 

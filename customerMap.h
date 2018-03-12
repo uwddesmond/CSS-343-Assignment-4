@@ -8,9 +8,10 @@
 class customerMap {
 
 public:
+	customerMap();
 	~customerMap();
 	void insert(Customer*);
-	CustomerNode* find(int);
+	Customer* find(int);
 
 private:
 	int hashFunction(int);

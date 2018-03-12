@@ -3,6 +3,11 @@
 #include "customerMap.h"
 #include <string>
 
+// constructor
+customerMap::customerMap() {
+
+}
+
 customerMap::~customerMap() {
 	for (int i = 0; i < 10; ++i) {
 		CustomerNode* current = customers[i];
@@ -18,7 +23,7 @@ customerMap::~customerMap() {
 void customerMap::insert(Customer* customer)
 {
 	int index = hashFunction(customer->getCustomerId());
-	CustomerNode* target = new CustomerNode(customer->getCustomerId());
+	CustomerNode* target = new CustomerNode(customer);
 	CustomerNode *current = customers[index];
 	if (current != nullptr) {
 		while (current->next != nullptr) {
@@ -34,13 +39,13 @@ void customerMap::insert(Customer* customer)
 // Looks for a customer in the system based in their customer id
 // If successfully found, a pointer to the customer node is returned
 // If it fails and they do not exist in the system nullptr is returned
-CustomerNode* customerMap::find(int id)
+Customer* customerMap::find(int id)
 {
 	int index = hashFunction(id);
 	CustomerNode* current = customers[index];
 	while (current != nullptr) {
-		if (current->item == id) {
-			return current;
+		if (current->cust->getCustomerId() == id) {
+			return current->cust;
 		}
 		current = current->next;
 	}

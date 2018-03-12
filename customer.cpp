@@ -13,7 +13,7 @@ using namespace std;
 Customer::Customer(int customerId, string customerName) {
 	this->customerId = customerId;
 	this->name = customerName;
-	this->history = new deque<Transaction>();
+	this->history = new deque<Transaction*>();
 }
 
 // deconstructor
@@ -29,6 +29,10 @@ int Customer::getCustomerId() {
 // returns the customer's name
 string Customer::getCustomerName() {
 	return this->name;
+}
+
+void Customer::makeTransaction(Transaction* trans) {
+	history->push_back(trans);
 }
 
 // returns a queue of the user's transactions

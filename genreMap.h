@@ -11,6 +11,7 @@ public:
 	genreMap<genre>();
 	void insert(genre*);
 	genre* find(string);
+	void printInventory(string);
 
 private:
 	int hashFunction(string);
