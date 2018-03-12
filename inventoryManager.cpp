@@ -10,8 +10,10 @@
 #include "classic.h"
 #include "comedy.h"
 #include "drama.h"
+#include "movie.h"
 #include <fstream>
 #include <sstream>
+#include <cctype>
 
 
 using namespace std;
@@ -21,50 +23,11 @@ genreMap<Classic> *classics;
 genreMap<Drama> *dramas;
 
 
-int main() {
-	initialize();
-	ifstream file;
-	file.open("data4commands.txt");
-	if (file.is_open()) {
-		string line;
-		// Reading through the command file line by line and 
-		while (getline(file, line)) {
-			string command = line.substr(0, 1);
-			if (command == "I") {
-				printInventory();
-			}
-			else if (command == "H") {
-				string custId = line.substr(2, 6);
-				stringstream count(custId);
-				int id;
-				count >> id;
-				history(id);
-			}
-			else if (command == "B") {
-				string toPass = line.substr(2, line.length());
-				borrow(toPass);
-			}
-			else if (command == "R") {
-				string toPass = line.substr(2, line.length());
-				makeReturn(toPass);
-			}
-			else {
-				cout << "Error: Invalid command." << endl;
-			}
-		}
-	}
-}
 
-void initialize() {
-	customers = new customerMap();
-	comedies = new genreMap<Comedy>();
-	classics = new genreMap<Classic>();
-	dramas = new genreMap<Drama>();
-	initCustomers("data4customers.txt");
-	initMovies("data4movies.txt");
-}
+
 
 void initCustomers(string filename) {
+	customers = new customerMap();
 	ifstream file;
 	file.open(filename);
 	if (file.is_open()) {
@@ -85,6 +48,9 @@ void initCustomers(string filename) {
 }
 
 void initMovies(string filename) {
+	comedies = new genreMap<Comedy>();
+	classics = new genreMap<Classic>();
+	dramas = new genreMap<Drama>();
 	ifstream file;
 	file.open(filename);
 	if (file.is_open()) {
@@ -141,15 +107,19 @@ void initMovies(string filename) {
 
 				stringstream tempStr(newTemp);
 				string namePart;
+				tempStr >> namePart;
+				name = namePart;
 				while (tempStr >> namePart) {
-					if (!isdigit(namePart[0])) {
+					stringstream test(namePart);
+					int tester = 0;
+					if ((test >> tester).fail()) {
 						name = name + " " + namePart;
 					}
 					else {
-						date = date + " " + namePart;
+						date += namePart + " ";
 					}
 				}
-				
+				date = date.substr(0, date.length() - 1);
 				Classic* newMovie = new Classic(stockCount, title, director, date, type, name);
 				classics->insert(newMovie);
 			}
@@ -319,4 +289,44 @@ void makeReturn(string line) {
 		}
 	}
 }
+
+void initialize() {
+	initCustomers("data4customers.txt");
+	initMovies("data4movies.txt");
+}
+
+int main() {
+	initialize();
+	ifstream file;
+	file.open("data4commands.txt");
+	if (file.is_open()) {
+		string line;
+		// Reading through the command file line by line and 
+		while (getline(file, line)) {
+			string command = line.substr(0, 1);
+			if (command == "I") {
+				printInventory();
+			}
+			else if (command == "H") {
+				string custId = line.substr(2, 6);
+				stringstream count(custId);
+				int id;
+				count >> id;
+				history(id);
+			}
+			else if (command == "B") {
+				string toPass = line.substr(2, line.length());
+				borrow(toPass);
+			}
+			else if (command == "R") {
+				string toPass = line.substr(2, line.length());
+				makeReturn(toPass);
+			}
+			else {
+				cout << "Error: Invalid command." << endl;
+			}
+		}
+	}
+}
+
 

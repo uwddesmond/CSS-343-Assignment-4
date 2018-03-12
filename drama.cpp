@@ -2,7 +2,7 @@
 
 #include <string>
 #include "drama.h"
-
+using namespace std;
 // drama movie constructor
 Drama::Drama(int stock, string title, string director, string releaseYear, 
 	string movieType) : Movie(stock, title, director, releaseYear, movieType) {

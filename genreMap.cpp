@@ -1,12 +1,11 @@
 #include "genreMap.h"
 #include <string>
 #include <queue>
-
+using namespace std;
 template<class genre>
-genreMap<genre>::genreMap<genre>()
+genreMap<genre>::genreMap()
 {
-	this->movies = new movieNode[10];
-}
+};
 
 template<class genre>
 void genreMap<genre>::insert(genre* movie)
@@ -23,10 +22,10 @@ void genreMap<genre>::insert(genre* movie)
 	else {
 		this->movies[index] = target;
 	}
-}
+};
 
 template<class genre>
-genre * genreMap<genre>::find(string key)
+genre* genreMap<genre>::find(string key)
 {
 	int index = hashFunction(key);
 	movieNode *cur = this->movies[index];

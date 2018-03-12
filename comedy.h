@@ -4,7 +4,7 @@
 
 #include <string>
 #include "movie.h"
-
+using namespace std;
 class Comedy : public Movie {
 
 public:

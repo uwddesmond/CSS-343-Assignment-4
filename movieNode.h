@@ -1,7 +1,7 @@
 #pragma once
 #ifndef MOVIENODE_H
 #define MOVIENODE_H
-
+using namespace std;
 template <class genre>
 class movieNode {
 	

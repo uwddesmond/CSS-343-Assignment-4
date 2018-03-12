@@ -7,19 +7,21 @@ using namespace std;
 
 // constructor receives id, title, type
 Transaction::Transaction(int customerId, string movieTitle, bool transType) {
-	this->customerId = customerId;
+	this->custId = customerId;
 	this->movieTitle = movieTitle;
-	this->transactionType = transType;
+	this->returnOrBorrow = transType;
 }
 
-Transaction::~Transaction() {
+Transaction::~Transaction()
+{
 	delete this;
 }
 
+
 // returns the customer's id
-int Transaction::getCustomerId() {
-	return this->customerId;
-}
+//int Transaction::getCustomerId() {
+//	return this->customerId;
+//}
 
 // returns the movie's title
 string Transaction::getMovieTitle() {
@@ -28,7 +30,7 @@ string Transaction::getMovieTitle() {
 
 // returns a string of what type of transaction it was
 string Transaction::transactionType() {
-	if (this->transactionType) {
+	if (this->returnOrBorrow) {
 		return "B";
 	}
 	else {

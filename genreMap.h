@@ -3,7 +3,7 @@
 #define GENEREMAP_H
 #include <string>
 #include "movieNode.h"
-
+using namespace std;
 template<class genre>
 class genreMap {
 
@@ -15,7 +15,7 @@ public:
 
 private:
 	int hashFunction(string);
-	movieNode[] *movies;
+	movieNode<genre>* movies[10];
 
 };
 

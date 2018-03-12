@@ -5,7 +5,7 @@
 #include <string>
 #include <queue>
 #include <deque>
-#include "transaction.cpp"
+#include "transaction.h"
 
 using namespace std;
 

@@ -4,7 +4,7 @@
 #include <string>
 
 #include "customer.h"
-
+using namespace std;
 class customerMap {
 
 public:

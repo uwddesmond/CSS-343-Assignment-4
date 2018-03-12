@@ -2,7 +2,7 @@
 
 #include "customerMap.h"
 #include <string>
-
+using namespace std;
 // constructor
 customerMap::customerMap() {
 

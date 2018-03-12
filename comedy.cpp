@@ -1,6 +1,6 @@
 // Dylan Desmond and Jimmy Lau
 #include "comedy.h"
-
+using namespace std;
 Comedy::Comedy(int stock, string title, string director,
 	string releaseYear, string movieType) : 
 	Movie(stock, title, director, releaseYear, movieType) {

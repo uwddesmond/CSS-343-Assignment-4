@@ -18,6 +18,12 @@ Customer::Customer(int customerId, string customerName) {
 
 // deconstructor
 Customer::~Customer() {
+	while (this->history->empty()) {
+		Transaction* del = this->history->front();
+		this->history->pop_front();
+		delete del;
+	}
+	delete this->history;
 	delete this;
 }
 
@@ -37,9 +43,9 @@ void Customer::makeTransaction(Transaction* trans) {
 
 // returns a queue of the user's transactions
 void Customer::getHistory() {
-	deque<Transaction>::reverse_iterator trans = this->history->rbegin();
+	deque<Transaction*>::reverse_iterator trans = this->history->rbegin();
 	for (trans; trans != history->rend(); ++trans) {
-		Transaction cur = *trans;
-		cout << cur.transactionType << ", " << cur.getMovieTitle;
+		Transaction *cur = *trans;
+		cout << cur->transactionType() << ", " << cur->getMovieTitle();
 	}
 }

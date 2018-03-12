@@ -62,6 +62,6 @@ string Movie::getMovieType() const {
 }
 
 // less than operator
-virtual bool Movie::operator<(const Movie &rhs) const {
-
+bool Movie::operator<(const Movie &rhs) const {
+	return false;
 }

@@ -1,5 +1,5 @@
 #include "movieNode.h"
-
+using namespace std;
 template<class genre>
 movieNode<genre>::movieNode(genre *item)
 {
